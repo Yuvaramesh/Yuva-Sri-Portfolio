@@ -4,11 +4,11 @@ A modern, interactive portfolio website showcasing Yuva Sri Ramesh's work as an 
 
 ⚡ Techstack
 
-Next.js
-TypeScript
-Tailwind CSS
-Framer Motion
-Three.js
+Next.js<br>
+TypeScript<br>
+Tailwind CSS<br>
+Framer Motion<br>
+Three.js<br>
 ## For Collaboration
 **Get in Touch** - ryuvasri01@gmail.com<br>
 **Portfolio** - https://yuva-sri-ramesh-portfolio.vercel.app/
