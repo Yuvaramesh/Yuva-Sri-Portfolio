@@ -11,4 +11,4 @@ Framer Motion
 Three.js
 ## For Collaboration
 **Get in Touch** - ryuvasri01@gmail.com<br>
-**Portfolio** - (https://yuva-sri-ramesh-portfolio.vercel.app/)
+**Portfolio** - https://yuva-sri-ramesh-portfolio.vercel.app/
