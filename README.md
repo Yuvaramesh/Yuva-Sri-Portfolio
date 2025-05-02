@@ -1,1 +1,14 @@
+![image](https://github.com/user-attachments/assets/4ba30bf8-9712-4dd9-914e-e009d5fd65f3)
 
+A modern, interactive portfolio website showcasing Harini Rengarajan's work as an AI Developer, featuring dynamic animations, 3D elements, and project showcases.
+
+⚡ Techstack
+
+Next.js
+TypeScript
+Tailwind CSS
+Framer Motion
+Three.js
+## For Collaboration
+**Get in Touch** - ryuvasri01[at]gmail[dot]com
+**Portfolio** - (https://yuva-sri-ramesh-portfolio.vercel.app/)
