@@ -94,7 +94,7 @@ const Education = () => {
       {/* 👧 Girl image centered below all cards */}
       <div className="w-full flex justify-center mt-12">
         <img
-          src="/public/aigirl-removebg-preview.png"
+          src="./aigirl-removebg-preview.png"
           alt="Animated Girl"
           className="w-[220px] h-auto animate-pulse rounded-full border-2 border-dotted border-white"
         />
