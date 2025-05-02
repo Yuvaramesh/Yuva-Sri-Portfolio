@@ -10,5 +10,5 @@ Tailwind CSS
 Framer Motion
 Three.js
 ## For Collaboration
-**Get in Touch** - ryuvasri01[at]gmail[dot]com
+**Get in Touch** - ryuvasri01@gmail.com<br>
 **Portfolio** - (https://yuva-sri-ramesh-portfolio.vercel.app/)
