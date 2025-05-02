@@ -43,31 +43,31 @@ const logoIconsList = [
     imgPath: "./react.png",
   },
   {
-    imgPath: "/public/numpy.jpeg",
+    imgPath: "./numpy.jpeg",
   },
   {
-    imgPath: "/public/tensorflow.jpeg",
+    imgPath: "./tensorflow.jpeg",
   },
   {
-    imgPath: "/public/figma.jpeg",
+    imgPath: "./figma.jpeg",
   },
   {
-    imgPath: "/public/ollama.png",
+    imgPath: "./ollama.png",
   },
   {
-    imgPath: "/public/flask.png",
+    imgPath: "./flask.png",
   },
   {
-    imgPath: "/public/pandas.png",
+    imgPath: "./pandas.png",
   },
   {
-    imgPath: "/public/rag.png",
+    imgPath: "./rag.png",
   },
   {
-    imgPath: "/public/docker.png",
+    imgPath: "./docker.png",
   },
   {
-    imgPath: "/public/mongodb.png",
+    imgPath: "./mongodb.png",
   },
 ];
 
