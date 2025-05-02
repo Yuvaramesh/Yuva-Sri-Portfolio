@@ -37,10 +37,10 @@ const counterItems = [
 
 const logoIconsList = [
   {
-    imgPath: "/public/python-svgrepo-com.svg",
+    imgPath: "./python-svgrepo-com.svg",
   },
   {
-    imgPath: "/public/react.png",
+    imgPath: "./react.png",
   },
   {
     imgPath: "/public/numpy.jpeg",
