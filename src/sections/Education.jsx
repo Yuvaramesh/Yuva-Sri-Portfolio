@@ -10,7 +10,10 @@ const Education = () => {
     {
       title: "2021 - 2025",
       content: (
-        <div className="p-4 rounded-xl border border-purple-500/20 bg-gradient-to-b from-black/10 to-black/5 dark:from-white/5 dark:to-white/10 hover:shadow-purple-500/10 hover:shadow-lg transition-all">
+        <div
+          section="education"
+          className="p-4 rounded-xl border border-purple-500/20 bg-gradient-to-b from-black/10 to-black/5 dark:from-white/5 dark:to-white/10 hover:shadow-purple-500/10 hover:shadow-lg transition-all"
+        >
           <div className="flex items-start gap-3">
             <FaGraduationCap className="text-purple-500 text-xl mt-1 flex-shrink-0" />
             <div>
@@ -84,20 +87,11 @@ const Education = () => {
 
   return (
     <section id="education" className="w-full py-20">
-      <h1 className="heading text-center mb-10">
+      <h1 className="heading text-center mb-10 text-4xl md:text-5xl font-bold">
         <span className="text-purple">Education Details</span>
       </h1>
       <div className="mt-10">
         <Timeline data={educationData} />
-      </div>
-
-      {/* 👧 Girl image centered below all cards */}
-      <div className="w-full flex justify-center mt-12">
-        <img
-          src="./aigirl-removebg-preview.png"
-          alt="Animated Girl"
-          className="w-[220px] h-auto animate-pulse rounded-full border-2 border-dotted border-white"
-        />
       </div>
     </section>
   );
