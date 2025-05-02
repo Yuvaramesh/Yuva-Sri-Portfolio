@@ -1,5 +1,5 @@
 ![image](https://github.com/user-attachments/assets/4ba30bf8-9712-4dd9-914e-e009d5fd65f3)
-[![Alt Text]![image](https://github.com/user-attachments/assets/4ba30bf8-9712-4dd9-914e-e009d5fd65f3)]([https://your-portfolio-link.com](https://yuva-sri-ramesh-portfolio.vercel.app/)
+
 
 A modern, interactive portfolio website showcasing Yuva Sri Ramesh's work as an AI Developer, featuring dynamic animations, 3D elements, and project showcases.
 
