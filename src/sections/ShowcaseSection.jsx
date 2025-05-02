@@ -94,7 +94,7 @@ const AppShowcase = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="/public/AiTopia.jpg"
+                  src="./AiTopia.jpg"
                   alt="evaRef App"
                   className="w-[295px] h-[255px] object-cover rounded-4xl cursor-pointer border-1 border-white"
                   style={{

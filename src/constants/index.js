@@ -150,7 +150,7 @@ const expCards = [
     // review:
     //   "Yuva brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
     // // imgPath: "/public/python-svgrepo-com.svg",
-    logoPath: "/public/python-svgrepo-com.svg",
+    logoPath: "./python-svgrepo-com.svg",
     title: "Software Developement Engineer",
 
     date: "April 2024 - April 2025",
@@ -165,7 +165,7 @@ const expCards = [
     // review:
     //   "Yuva's contributions to Docker's web applications have been outstanding. She approaches challenges with a problem-solving mindset.",
     // imgPath: "/public/react.png",
-    logoPath: "/public/react.png",
+    logoPath: "./react.png",
     title: "Full Stack Developer Intern",
 
     date: "June 2023 - July 2023",
@@ -179,7 +179,7 @@ const expCards = [
     // review:
     //   "Yuva's work on LLMs brought a high level of quality and efficiency. She delivered solutions that enhanced our user experience & meet our product goals.",
     // imgPath: "/public/rag.png",
-    logoPath: "/public/rag.png",
+    logoPath: "./rag.png",
     title: "AI/ML Engineer",
     date: "Feb 2024 - Feb 2024",
     responsibilities: [
