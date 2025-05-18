@@ -6,7 +6,7 @@ import MagicButton from "../components/MagicButton"; // adjust the import path a
 const ResumeCard = () => {
   const handleView = () => {
     window.open(
-      "https://drive.google.com/file/d/1qZQm7rz3rV6coAxh945W6O9Nmc-BGAY7/view?usp=sharing",
+      "https://drive.google.com/file/d/1xromaRcJFGs3OxYiHUfMEpFMbZwme8iS/view?usp=sharing",
       "_blank"
     );
   };
