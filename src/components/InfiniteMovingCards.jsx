@@ -1,7 +1,4 @@
-"use client";
-import { cn } from "../../lib/utils.ts";
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useRef } from "react";
 
 export const InfiniteMovingCards = ({
   items,
@@ -10,20 +7,19 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }) => {
-  const containerRef = React.useRef(null);
-  const scrollerRef = React.useRef(null);
+  const containerRef = useRef(null);
+  const scrollerRef = useRef(null);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
     addAnimation();
   }, []);
 
-  const [start, setStart] = useState(false);
-
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
       scrollerContent.forEach((item) => {
-        scrollerRef.current?.appendChild(item.cloneNode(true));
+        scrollerRef.current.appendChild(item.cloneNode(true));
       });
       getDirection();
       getSpeed();
@@ -39,37 +35,30 @@ export const InfiniteMovingCards = ({
   };
 
   const getSpeed = () => {
-    containerRef.current?.style.setProperty(
-      "--animation-duration",
-      speed === "fast" ? "20s" : speed === "normal" ? "100s" : "110s"
-    );
+    const duration =
+      speed === "fast" ? "20s" : speed === "normal" ? "250s" : "110s";
+    containerRef.current?.style.setProperty("--animation-duration", duration);
   };
 
   return (
     <div
       ref={containerRef}
-      className={cn(
-        "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
-        className
-      )}
+      className={`scroller relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] ${className}`}
     >
       <ul
         ref={scrollerRef}
-        className={cn(
-          "flex min-w-full shrink-0 gap-8 py-4 w-max flex-nowrap items-center",
-          start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]"
-        )}
+        className={`flex min-w-full shrink-0 gap-8 py-4 w-max flex-nowrap items-center ${
+          start ? "animate-scroll" : ""
+        } ${pauseOnHover ? "hover:[animation-play-state:paused]" : ""}`}
       >
         {items.map((item) => (
           <li key={item.id} className="w-[20vw] max-w-full flex-shrink-0">
             <div className="flex flex-col items-center">
-              <div className="relative w-full h-64 rounded-lg overflow-hidden ">
-                <Image
+              <div className="relative w-full h-64 rounded-lg overflow-hidden">
+                <img
                   src={item.image}
                   alt={item.caption}
-                  fill
-                  className="object-contain"
+                  className="object-contain w-full h-full"
                   style={{ background: "transparent" }}
                 />
               </div>
