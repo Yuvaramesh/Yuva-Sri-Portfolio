@@ -1,6 +1,5 @@
 ![image](https://github.com/user-attachments/assets/4ba30bf8-9712-4dd9-914e-e009d5fd65f3)
 
-
 A modern, interactive portfolio website showcasing Yuva Sri Ramesh's work as an AI Developer, featuring dynamic animations, 3D elements, and project showcases.
 
 ⚡ Techstack
