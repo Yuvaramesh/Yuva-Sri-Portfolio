@@ -35,6 +35,11 @@ const items = [
 export default function ShowcaseSection() {
   return (
     <div style={{ height: "600px", position: "relative" }}>
+      {/* Title */}
+      {/* Title */}
+      <h2 className="absolute top-4 left-1/2 transform -translate-x-1/2 text-xl font-bold text-neutral-100 z-50">
+        Rotate and Explore Projects
+      </h2>
       <InfiniteMenu items={items} />
     </div>
   );

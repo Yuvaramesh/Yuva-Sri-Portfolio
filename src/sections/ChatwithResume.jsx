@@ -1,139 +1,132 @@
-"use client";
 import React, { useState } from "react";
+import axios from "axios";
 
-export default function RAGChatApp() {
+const MultiDocChat = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [uploadStatus, setUploadStatus] = useState("");
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handleFileChange = (e) => {
-    setUploadedFiles([...e.target.files]);
+  const handleFileChange = (event) => {
+    setUploadedFiles([...event.target.files]);
   };
 
   const handleUpload = async () => {
-    if (!uploadedFiles.length) return;
-    setUploadStatus("Uploading...");
     const formData = new FormData();
-    uploadedFiles.forEach((file) => formData.append("files", file));
+    uploadedFiles.forEach((file) => {
+      formData.append("files", file);
+    });
 
     try {
+      setLoading(true);
       const response = await axios.post("/api/upload", formData);
-      setUploadStatus(response.data.message);
+      alert(
+        `Uploaded ${response.data.chunkCount} chunks from ${uploadedFiles.length} documents.`
+      );
     } catch (error) {
-      setUploadStatus(`Error: ${error.response?.data?.error || error.message}`);
-    }
-  };
-
-  const handleAsk = async () => {
-    if (!question.trim()) return;
-    setLoading(true);
-    try {
-      const res = await axios.post("/api/ask", { question });
-      const generatedAnswer = res.data.answer;
-      setAnswer(generatedAnswer);
-      const newHistory = [
-        ...chatHistory,
-        { question, answer: generatedAnswer },
-      ];
-      setChatHistory(newHistory);
-    } catch (err) {
-      setAnswer(`Error: ${err.message}`);
+      alert("Error uploading files: " + error.message);
     } finally {
       setLoading(false);
     }
   };
 
-  const downloadChat = () => {
-    const text = chatHistory
+  const handleQuestionSubmit = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/ask", { question });
+      setAnswer(response.data.answer);
+      const newHistory = [
+        ...chatHistory,
+        { question, answer: response.data.answer },
+      ];
+      setChatHistory(newHistory);
+    } catch (error) {
+      alert("Error generating answer: " + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDownloadHistory = () => {
+    const historyText = chatHistory
       .map(
-        (item, i) => `Q${i + 1}: ${item.question}\nA${i + 1}: ${item.answer}\n`
+        (chat, idx) =>
+          `Q${idx + 1}: ${chat.question}\nA${idx + 1}: ${chat.answer}`
       )
-      .join("\n");
-    const blob = new Blob([text], { type: "text/plain" });
-    const href = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = href;
-    a.download = "chat_history.txt";
-    a.click();
-    URL.revokeObjectURL(href);
+      .join("\n\n");
+
+    const blob = new Blob([historyText], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "chat_history.txt";
+    link.click();
   };
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">
+    <div className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">
         📚 Upload & Chat with Your Documents
       </h1>
 
-      {/* Upload Section */}
-      <div className="mb-6">
-        <label className="block font-semibold mb-2">
-          Upload PDF, DOCX, TXT files
-        </label>
+      <div className="mb-4">
         <input
           type="file"
-          accept=".pdf,.docx,.txt"
           multiple
+          accept=".pdf,.docx,.txt"
           onChange={handleFileChange}
           className="mb-2"
         />
         <button
           onClick={handleUpload}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white px-4 py-2 rounded"
+          disabled={loading || uploadedFiles.length === 0}
         >
-          Upload
+          {loading ? "Uploading..." : "Upload Files"}
         </button>
-        <p className="text-sm mt-2">{uploadStatus}</p>
       </div>
 
-      <hr className="my-6 border-gray-300" />
+      <hr className="my-6" />
 
-      {/* Chat Section */}
-      <h2 className="text-xl font-semibold mb-2">
-        💬 Ask a Question About Your Documents
-      </h2>
-      <input
-        type="text"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Type your question..."
-        className="w-full p-2 border rounded mb-4"
-      />
-      <button
-        onClick={handleAsk}
-        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-        disabled={loading}
-      >
-        {loading ? "Loading..." : "Ask"}
-      </button>
+      <div>
+        <h2 className="text-xl font-semibold mb-2">
+          💬 Ask a Question About Your Documents
+        </h2>
+        <input
+          type="text"
+          placeholder="Type your question here..."
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          className="border px-3 py-2 w-full rounded mb-2"
+        />
+        <button
+          onClick={handleQuestionSubmit}
+          className="bg-green-600 text-white px-4 py-2 rounded"
+          disabled={!question || loading}
+        >
+          {loading ? "Generating..." : "Ask"}
+        </button>
+      </div>
 
       {answer && (
-        <div className="mt-6 p-4 bg-gray-100 rounded shadow">
-          <h3 className="text-lg font-semibold mb-2">🧠 Answer:</h3>
-          <p>{answer}</p>
+        <div className="mt-6">
+          <h3 className="text-lg font-medium">🧠 Answer:</h3>
+          <p className="bg-gray-100 p-4 rounded mt-2">{answer}</p>
         </div>
       )}
 
-      {/* Chat History & Download */}
       {chatHistory.length > 0 && (
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold mb-2">Chat History:</h3>
-          <pre className="bg-gray-100 p-4 rounded overflow-x-auto max-h-60">
-            {chatHistory.map(
-              (item, i) =>
-                `Q${i + 1}: ${item.question}\nA${i + 1}: ${item.answer}\n\n`
-            )}
-          </pre>
+        <div className="mt-6">
           <button
-            onClick={downloadChat}
-            className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+            onClick={handleDownloadHistory}
+            className="bg-gray-700 text-white px-4 py-2 rounded"
           >
             📄 Download Chat History as TXT
           </button>
         </div>
       )}
-    </main>
+    </div>
   );
-}
+};
+
+export default MultiDocChat;

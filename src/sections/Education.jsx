@@ -23,24 +23,23 @@ const Education = () => {
               <p className="text-neutral-600 dark:text-neutral-300 mt-2">
                 Bachelor&apos;s Degree in Artificial Intelligence & Data Science
               </p>
-              <p className="text-purple-500 mt-2 font-medium">CGPA: 8.73</p>
             </div>
           </div>
         </div>
       ),
     },
     {
-      title: "2013 - 2020",
+      title: "2009 - 2021",
       content: (
         <div className="p-4 rounded-xl border border-purple-500/20 bg-gradient-to-b from-black/10 to-black/5 dark:from-white/5 dark:to-white/10 hover:shadow-purple-500/10 hover:shadow-lg transition-all">
           <div className="flex items-start gap-3">
             <FaSchool className="text-purple-500 text-xl mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-xl font-bold text-black dark:text-white">
-                S.B.O.A Matric Hr Sec School
+                K.C.A.D C.G.Matric Hr Sec School
               </h3>
               <p className="text-neutral-600 dark:text-neutral-300 mt-2">
-                6th to 12th Standard
+                1st to 12th Standard
               </p>
             </div>
           </div>
@@ -48,35 +47,17 @@ const Education = () => {
       ),
     },
     {
-      title: "2008 - 2013",
+      title: "2006 - 2009",
       content: (
         <div className="p-4 rounded-xl border border-purple-500/20 bg-gradient-to-b from-black/10 to-black/5 dark:from-white/5 dark:to-white/10 hover:shadow-purple-500/10 hover:shadow-lg transition-all">
           <div className="flex items-start gap-3">
             <GiSchoolBag className="text-purple-500 text-xl mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-xl font-bold text-black dark:text-white">
-                Indira Gandhi Memorial Matriculation Hr Sec School
+                Bharath Nursery & Primary School
               </h3>
               <p className="text-neutral-600 dark:text-neutral-300 mt-2">
-                1st to 5th Standard
-              </p>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "2006 - 2008",
-      content: (
-        <div className="p-4 rounded-xl border border-purple-500/20 bg-gradient-to-b from-black/10 to-black/5 dark:from-white/5 dark:to-white/10 hover:shadow-purple-500/10 hover:shadow-lg transition-all">
-          <div className="flex items-start gap-3">
-            <FaChild className="text-purple-500 text-xl mt-1 flex-shrink-0" />
-            <div>
-              <h3 className="text-xl font-bold text-black dark:text-white">
-                Bharathiya Vidyalaya Nursery & Primary School
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-300 mt-2">
-                UKG - LKG
+                PreKG - UKG
               </p>
             </div>
           </div>

@@ -13,6 +13,7 @@ import ResumeCard from "./sections/ResumeCard";
 // import ChatwithResume from "./sections/ChatwithResume"; // Adjust the path as necessary
 import Certificates from "./sections/Certificates"; // Adjust the path as necessary
 import { DragCards } from "./components/DragCards";
+// import ResumeChat from "./components/ResumeChat"; // Adjust the path as necessary
 const App = () => (
   <>
     <Navbar />
@@ -25,6 +26,7 @@ const App = () => (
     <ResumeCard />
     {/* <ChatResumeUI /> */}
     {/* <ChatwithResume /> */}
+    {/* <ResumeChat /> */}
     <DragCards />
     <Certificates />
     <Contact />

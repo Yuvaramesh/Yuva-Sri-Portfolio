@@ -17,6 +17,9 @@ const ResumeCard = () => {
       "_blank"
     );
   };
+  const chatView = () => {
+    window.open("https://speakwithyuvasriramesh.streamlit.app/", "_blank");
+  };
 
   return (
     <div className="w-full flex flex-col items-center mt-12 space-y-6">
@@ -36,7 +39,6 @@ const ResumeCard = () => {
         <h2 className="text-lg lg:text-xl font-semibold mb-4">
           Discover How I Add Value To Your Team
         </h2>
-
         <div className="flex justify-center gap-4">
           <MagicButton
             title="View Resume"
@@ -50,6 +52,15 @@ const ResumeCard = () => {
             icon={<IoCopyOutline />}
             position="left"
             handleClick={certificatesView}
+            otherClasses="w-full md:w-auto flex-1 justify-center"
+          />
+        </div>
+        <div className="flex justify-center gap-4">
+          <MagicButton
+            title="Explore Yuva's♾️chat!"
+            icon={<IoCopyOutline />}
+            position="left"
+            handleClick={chatView}
             otherClasses="w-full md:w-auto flex-1 justify-center"
           />
         </div>

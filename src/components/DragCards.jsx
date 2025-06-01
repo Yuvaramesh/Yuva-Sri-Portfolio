@@ -8,6 +8,7 @@ export const DragCards = () => {
       <h2 className="relative z-0 text-[13vw] font-black text-neutral-800 md:text-[130px]">
         ACHIEVEMENTS
       </h2>
+
       <Cards />
     </section>
   );

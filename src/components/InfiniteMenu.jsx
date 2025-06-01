@@ -674,7 +674,7 @@ class InfiniteGridMenu {
 
   nearestVertexIndex = null;
   smoothRotationVelocity = 0;
-  scaleFactor = 1.0; // default
+  scaleFactor = 0.1; // default
   movementActive = false;
 
   constructor(
